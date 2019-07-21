@@ -2,6 +2,9 @@ buildscript {
 
     ext {
         springBootVersion = '2.1.6.RELEASE'
+        lombokVersion = '1.18.6'
+        mapstructVersion = '1.2.0.Final'
+        guavaVersion = '27.0-jre'
     }
 
     repositories {
@@ -18,25 +21,43 @@ buildscript {
 
 subprojects {
 
-
     apply plugin: 'java'
     apply plugin: 'idea'
     apply plugin: 'org.springframework.boot'
     apply plugin: "io.spring.dependency-management"
 
 
-  
-
     repositories {
         mavenCentral()
         mavenLocal()
     }
 
+    compileJava.options.encoding = 'UTF-8'
+    group 'me.warriorg.spring'
+    version '1.0-SNAPSHOT'
 
     sourceCompatibility = 11
     targetCompatibility = 11
 
     dependencies {
-        testCompile("junit:junit")
+        compile "org.projectlombok:lombok",
+                "org.mapstruct:mapstruct-jdk8"
+
+        testCompile  "org.projectlombok:lombok",
+                "org.mapstruct:mapstruct-jdk8"
+
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}",
+                "org.mapstruct:mapstruct-processor:$mapstructVersion"
+
+        testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}",
+                "org.mapstruct:mapstruct-processor:$mapstructVersion"
+
+
+        constraints {
+            compile "org.projectlombok:lombok:${lombokVersion}"
+            compile "org.mapstruct:mapstruct-jdk8:${mapstructVersion}"
+            compile "com.google.guava:guava:$guavaVersion"
+        }
     }
+
 }
