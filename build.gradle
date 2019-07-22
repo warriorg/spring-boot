@@ -43,14 +43,11 @@ subprojects {
         compile "org.projectlombok:lombok",
                 "org.mapstruct:mapstruct-jdk8"
 
-        testCompile  "org.projectlombok:lombok",
-                "org.mapstruct:mapstruct-jdk8"
+        testCompile("junit:junit")
 
         annotationProcessor "org.projectlombok:lombok:${lombokVersion}",
                 "org.mapstruct:mapstruct-processor:$mapstructVersion"
 
-        testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}",
-                "org.mapstruct:mapstruct-processor:$mapstructVersion"
 
 
         constraints {

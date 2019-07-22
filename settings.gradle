@@ -2,7 +2,8 @@ rootProject.name = 'spring-boot-sample'
 
 include 'spring-bucks'
 include 'spring-boot-mvc'
-include 'spring-boot-jpa'
 include 'spring-boot-mybatis'
 include 'spring-boot-common'
+
+include 'spring-data-jpa'
 
