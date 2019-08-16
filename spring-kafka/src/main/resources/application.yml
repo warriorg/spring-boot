@@ -1,6 +1,6 @@
 # 自定义属性
 kafka:
-  topic: spring-boot
+  topic: spring-test
 
 # 配置Kafka
 spring:
@@ -14,5 +14,6 @@ spring:
       group-id: group0  # 消费者组
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-
-
+logging:
+  level:
+    me.warriorg: debug

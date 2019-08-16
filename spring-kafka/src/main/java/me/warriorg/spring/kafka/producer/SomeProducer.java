@@ -19,7 +19,7 @@ public class SomeProducer {
     // 由于是提交数据，所以使用Post方式
     @PostMapping("/msg/send")
     public String sendMsg(@RequestParam("message") String message) {
-        template.send(topic, message);
+        template.send(topic, "aaaaaa", message);
         return "send success";
     }
 }
