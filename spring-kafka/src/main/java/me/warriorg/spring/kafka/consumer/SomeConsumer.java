@@ -38,7 +38,7 @@ public class SomeConsumer {
         headers.keySet().forEach(key -> log.info("{}: {}", key, headers.get(key)));
     }
 
-//    one
+//    方式一
 //    @KafkaListener(topics = "${kafka.topic}")
 //    public void onMsg(String message) {
 //        log.debug("消费者接受到消息 " + message);
