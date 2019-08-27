@@ -3,6 +3,7 @@ package me.warriorg.spring.kafka.consumer;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.common.protocol.types.Field;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,12 +32,24 @@ public class SomeConsumer {
     @Value("${kafka.topic}")
     private String topic;
 
-    // 方式2
+
+    /***
+     * 方式4
+     * @param data
+     * @param acknowledgment
+     */
     @KafkaListener(topics = "${kafka.topic}")
-    public void onMsg(@Payload String message, @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY)String  msgKey, @Headers MessageHeaders headers) {
-        log.debug("Kafka message:[{}], key:[{}] ", message, msgKey);
-        headers.keySet().forEach(key -> log.info("{}: {}", key, headers.get(key)));
+    public void onMsg(ConsumerRecord<String, String> data, Acknowledgment acknowledgment) {
+        log.debug("Kafka data:[{}] ", data);
+        acknowledgment.acknowledge();
     }
+
+    // 方式2
+//    @KafkaListener(topics = "${kafka.topic}")
+//    public void onMsg(@Payload String message, @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY)String  msgKey, @Headers MessageHeaders headers) {
+//        log.debug("Kafka message:[{}], key:[{}] ", message, msgKey);
+//        headers.keySet().forEach(key -> log.info("{}: {}", key, headers.get(key)));
+//    }
 
 //    方式一
 //    @KafkaListener(topics = "${kafka.topic}")

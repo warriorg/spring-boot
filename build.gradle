@@ -54,6 +54,7 @@ subprojects {
             compile "org.projectlombok:lombok:${lombokVersion}"
             compile "org.mapstruct:mapstruct-jdk8:${mapstructVersion}"
             compile "com.google.guava:guava:$guavaVersion"
+            compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
         }
     }
 
