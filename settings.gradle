@@ -9,4 +9,5 @@ include 'spring-data-jpa'
 
 include 'spring-bucks'
 include 'spring-kafka'
+include 'java-performance'
 
