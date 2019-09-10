@@ -29,10 +29,6 @@ import java.util.Map;
 public class SomeConsumer {
     private final Logger log = LoggerFactory.getLogger(SomeConsumer.class);
 
-    @Value("${kafka.topic}")
-    private String topic;
-
-
     /***
      * 方式4
      * @param data
@@ -57,5 +53,9 @@ public class SomeConsumer {
 //        log.debug("消费者接受到消息 " + message);
 //    }
 
+    @KafkaListener(topics= "#{'${kafka.multiple-topic}'.split(',')}", groupId = "dc-ems")
+    public void onReceive(ConsumerRecord<String, String> record, Acknowledgment acknowledgment) {
+
+    }
 
 }

@@ -1,6 +1,7 @@
 # 自定义属性
 kafka:
   topic: spring-test
+  multiple-topic: one,two         # 不要有空格
 
 # 配置Kafka
 spring:
