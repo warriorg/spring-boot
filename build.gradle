@@ -44,6 +44,7 @@ subprojects {
                 "org.mapstruct:mapstruct-jdk8"
 
         testCompile("junit:junit")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
 
         annotationProcessor "org.projectlombok:lombok:${lombokVersion}",
                 "org.mapstruct:mapstruct-processor:$mapstructVersion"
@@ -53,6 +54,8 @@ subprojects {
             compile "org.mapstruct:mapstruct-jdk8:${mapstructVersion}"
             compile "com.google.guava:guava:$guavaVersion"
             compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
+            compile 'com.baomidou:mybatis-plus-boot-starter:3.1.2'
+            compile 'p6spy:p6spy:3.8.5'
         }
     }
 
