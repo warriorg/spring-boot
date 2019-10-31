@@ -39,3 +39,8 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 .idea
+.project
+.classpath
+.settings/
+bin/
+
