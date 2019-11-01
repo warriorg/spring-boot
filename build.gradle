@@ -5,6 +5,7 @@ buildscript {
         lombokVersion = '1.18.6'
         mapstructVersion = '1.2.0.Final'
         guavaVersion = '27.0-jre'
+        droolsVersion = '7.28.0.Final'
     }
 
     repositories {
@@ -56,6 +57,13 @@ subprojects {
             compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
             compile 'com.baomidou:mybatis-plus-boot-starter:3.1.2'
             compile 'p6spy:p6spy:3.8.5'
+
+            compile "org.kie:kie-api:$droolsVersion"
+            compile "org.drools:drools-compiler:$droolsVersion"
+            compile "org.drools:drools-core:$droolsVersion"
+            compile "org.kie:kie-spring:$droolsVersion"
+
+
         }
     }
 
