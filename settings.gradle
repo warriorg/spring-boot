@@ -15,4 +15,5 @@ include 'mybatis-plus-crud'
 
 include 'spring-mybatis:mybatis-plus-crud'
 include 'spring-mybatis:spring-boot-mybatis'
+include 'spring-data-elasticsearch'
 
